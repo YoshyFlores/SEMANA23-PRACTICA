@@ -61,5 +61,14 @@ namespace SEMANA23_PRACTICA
         {
             return _empresaT;
         }
+        public string getContactoInfo()
+        {
+            return _contactoId + " " + _nombre + " " + _contactoCasa_Trabajo + " " + _empresaT;
+        }
+        public string getRegistro()
+        {
+            return "Número: " + _contactoId + "Nombre: " + _nombre + "Teléfono" + _contactoCasa_Trabajo + " " + _empresaT;
+
+        }
     }
 }

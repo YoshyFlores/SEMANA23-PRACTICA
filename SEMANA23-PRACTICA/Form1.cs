@@ -33,13 +33,41 @@ namespace SEMANA23_PRACTICA
 
 
             //mostrar datos de contacto
-            MessageBox.Show(contacto.getContactoId() + "  " + contacto.getNombre() + "  "+ contacto.getContactoCasa_Trabajo() + "  "+ contacto.getEmpresaT());
+            MessageBox.Show(contacto.getContactoId() + "  " + contacto.getNombre() + "  " + contacto.getContactoCasa_Trabajo() + "  " + contacto.getEmpresaT());
 
             //mediante propiedad autoimplementadacontacto.
             //SET
             //contacto._publishedEmpresaT= "Naciones Unidad";
             //GET
             //MessageBox.Show(book._publishedEmpresaT);
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            dgData.Columns.Add("ContactoId", "NÚMERO");
+            dgData.Columns.Add("nombre", "NOMBRE");
+            dgData.Columns.Add("ContactoCasa_Trabajo", "TELÉFONO DE CASA");
+            dgData.Columns.Add("EmpresaT", "NOMBRE DE LA EMPRESA");
+
+            //CREANDO INSTACIA
+            Contacto contacto = new Contacto();
+            contacto.setContactoId(int.Parse(txtContactoId.Text));
+            contacto.setnombre(txtNombre.Text);
+            contacto.setContactoCasa_Trabajo(int.Parse(txtTelefonocasa.Text));
+            contacto.setEmpresaT(txtEmpresaT.Text);
+            dgData.Rows.Add(contacto.getContactoId(), contacto.getNombre(), contacto.getContactoCasa_Trabajo(), contacto.getEmpresaT());
+            
+            //LIMPIANDO
+            txtContactoId.Text = "";
+            txtNombre.Text = "";
+            txtTelefonocasa.Text = "";
+            txtEmpresaT.Text = "";
+            txtContactoId.Focus();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
